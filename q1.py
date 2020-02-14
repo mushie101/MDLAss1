@@ -44,12 +44,12 @@ class linear_regression:
         self.split_train_data_y = self.chunk_up_split(self.train_data_y, 10)
 # ---------------------------Model Training-------------------------------------
     def plot_check(self, x, y):
-            plt.plot(range(10),x)
+            plt.plot(range(1,10),x[1:])
             plt.title('number of parameters vs Bias')
             plt.xlabel('Number of parameters')
             plt.ylabel('Bias^2')
             plt.show()
-            plt.plot(range(10),y)
+            plt.plot(range(1,10),y[1:])
             plt.title('number of parameters vs Variance') 
             plt.xlabel('Number of parameters')
             plt.ylabel('Variance')
@@ -82,6 +82,7 @@ class linear_regression:
             bias_total += bias
         variance_total = statistics.variance(y_predicted)
         bias_total /= 500
+        if j == 0: bias_total = None; variance_total=None
         print(j,"degree :-",bias_total," | ",variance_total)
         self.bias.append(bias_total)
         self.variance.append(variance_total)

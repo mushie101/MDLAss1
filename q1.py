@@ -47,7 +47,7 @@ class linear_regression:
             plt.plot(range(10),x)
             plt.title('number of parameters vs Bias')
             plt.xlabel('Number of parameters')
-            plt.ylabel('Bias')
+            plt.ylabel('Bias^2')
             plt.show()
             plt.plot(range(10),y)
             plt.title('number of parameters vs Variance') 
@@ -78,7 +78,7 @@ class linear_regression:
         variance_total = 0
         E_y_predicted = y_predicted.mean()
         for i in range(500):
-            bias = (E_y_predicted - y_test[i])**2
+            bias = (y_predicted[i]- y_test[i])**2
             bias_total += bias
         variance_total = statistics.variance(y_predicted)
         bias_total /= 500

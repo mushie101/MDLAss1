@@ -46,12 +46,12 @@ class linear_regression:
         # print(self.split_test_data_x)
 # ---------------------------Model Training-------------------------------------
     def plot_check(self, x, y):
-            plt.plot(range(1,10),x[1:])
+            plt.plot(range(10),x)
             plt.title('number of parameters vs Bias')
             plt.xlabel('Number of parameters')
             plt.ylabel('Bias^2')
             plt.show()
-            plt.plot(range(1,10),y[1:])
+            plt.plot(range(10),y)
             plt.title('number of parameters vs Variance') 
             plt.xlabel('Number of parameters')
             plt.ylabel('Variance')
@@ -70,12 +70,12 @@ class linear_regression:
                 x_test=poly.fit_transform(self.test_data_x[...,np.newaxis])
                 model.fit(x_, y)
                 predicted_y=model.predict(x_test)
-                # plt.plot(self.test_data_x[...,np.newaxis],self.test_data_y[...,np.newaxis],'o')
-                # plt.title('X vs Y')
-                # plt.xlabel('x')
-                # plt.ylabel('y')
-                # plt.plot(self.test_data_x,predicted_y.flatten(), 'o', color='black')
-                # plt.show()
+                plt.plot(self.test_data_x[...,np.newaxis],self.test_data_y[...,np.newaxis],'o')
+                plt.title('X vs Y')
+                plt.xlabel('x')
+                plt.ylabel('y')
+                plt.plot(self.test_data_x,predicted_y.flatten(), 'o', color='black')
+                plt.show()
                 self.bias_variance_calculation(self.test_data_x, self.test_data_y,predicted_y.flatten(),i)
 # ---------------------------Bias Variance-----------------------------------
     def bias_variance_calculation(self, x_test, y_test, y_predicted, j):
@@ -87,7 +87,7 @@ class linear_regression:
             bias_total += bias
         variance_total = statistics.variance(y_predicted)
         bias_total /= 80
-        if j == 0: bias_total=0;variance_total=0
+        # if j == 0: bias_total=0;variance_total=0
         # print(j,"degree :-",bias_total," | ",variance_total)
         self.bias.append(bias_total)
         self.variance.append(variance_total)

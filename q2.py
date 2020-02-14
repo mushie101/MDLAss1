@@ -8,7 +8,7 @@ import math
 import statistics
 print("\n\n\n")
 print("#"*80)
-print("\n BIAS VS VARIANCE\n")
+print("\n BIAS^2 VS VARIANCE\n")
 print("#"*80)
 
 class linear_regression:
